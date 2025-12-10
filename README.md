@@ -7,9 +7,10 @@ In 2007 Apple introduced the iPhone and revolutionized the smartphone industry. 
 
 | Year | Phone | Notes |
 |---|---|---|
-|      |  | TODO remember earlier phones |
+|      |  | ? |
 | 2010 | Droid 2 | Slide-out keyboard |
-|      |  | Did I have an S7? |
+|      |  | ?|
+| 2016 | Galaxy S7 |  |
 | 2019 | Galaxy S10 | |
 | 2022 | Galaxy S22 |  |
 | 2025 | Pixel 10 |  |
