@@ -9,7 +9,8 @@ In 2007 Apple introduced the iPhone and revolutionized the smartphone industry. 
 |---|---|---|
 |      |  | ? |
 | 2010 | Droid 2 | Slide-out keyboard |
-|      |  | ?|
+| 2012 | Droid Incredible | |
+| 2014 | Galaxy S5 | |
 | 2016 | Galaxy S7 |  |
 | 2019 | Galaxy S10 | |
 | 2022 | Galaxy S22 |  |
