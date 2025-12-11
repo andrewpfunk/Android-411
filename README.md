@@ -124,7 +124,7 @@ exit
 
 #### Port forwarding
 
-Do we even need to allow port 8022? According to this it only works on-device:
+Do we even need to allow port 8022? yes we need that part too
 
 "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
 
