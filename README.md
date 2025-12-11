@@ -203,6 +203,18 @@ sudo apt install x11-apps
 xeyes
 ```
 
+## MATLAB
+
+### Install
+
+### Install missing libraries
+
+```
+$ ./bin/matlab
+message about missing libnss3.so
+```
+
+
 
 
 
