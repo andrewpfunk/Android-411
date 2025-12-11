@@ -78,3 +78,22 @@ Files can be copied between Android and the Linux Terminal using these folders:
 ### ssh
 
 The font issue, together with the limited screen size and lack of a physical keyboard, made me want to connect to the Linux Terminal from my computer using ssh. This also took some trial and error but I eventually got it working. Using droidVNC-NG made the process easier by allowing me to type commands in the Linux Terminal app with my computer's keyboard before I got ssh working. 
+
+As a first step, make sure your computer and phone are on the same Wi-Fi network and can "see" each other, e.g.
+
+```
+$ ping Pixel-10
+PING pixel-10 (192.168.1.185): 56 data bytes
+64 bytes from 192.168.1.185: icmp_seq=2 ttl=64 time=55.449 ms
+```
+
+#### Password login
+
+By default, the Linux Terminal logs in as user droid, which is not set up for password login.
+
+(show original output of passwd --status)
+
+#### ssh server
+
+#### Port forwarding
+
