@@ -159,7 +159,7 @@ But this is still not enough to allow ssh from another device, because as this u
 
 https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
 
-### adb
+#### adb
 
 If you don't already have adb on your computer, install the Android Platform Tools from this or another location:
 https://developer.android.com/tools/releases/platform-tools
@@ -188,7 +188,7 @@ ssh droid@localhost -p 8022
 droid@localhost's password: 
 ```
 
-### X11
+#### X11
 
 For extra credit, if your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
 
