@@ -96,67 +96,68 @@ PING pixel-10 (192.168.1.185): 56 data bytes
 
 #### ssh server
 
-Next we need to install an ssh server. Before installing software packages it is recommended to run:
+Next we need to install an ssh server. Before installing new software packages it is recommended to run:
 
-```sudo apt get update && sudo apt get upgrade```
+```
+sudo apt update
+sudo apt upgrade
+```
 
 Then run:
 
 ```sudo apt install openssh-server```
 
-The Terminal app does not allow forwarding port 22 (more on port forwarding below) so we need to configure sshd to use a different port (I chose 8022).
-
-🚧 did we need to install pico or nano?
+The Terminal app does not allow forwarding port 22 (more on port forwarding below) so we need to configure sshd to use a different port (I chose 8022). Use your preferred text editor to change the port number in this file from 22 to 8022:
 
 ```
 $ sudo pico /etc/ssh/sshd_config
-Port 8022   # change from Port 22
+
+Port 8022 #Port 22
 ```
 
-Now configure the server to start and run automatically with this command:
+Now configure the server to start and run automatically with these commands:
 
-```sudo systemctl enable ssh```
+```
+sudo systemctl start ssh
+sudo systemctl enable ssh
+```
 
-🚧 at this point what happens when we run:
+Now the ssh server should be listening on port 8022, but when we try to connect it asks for a password:
 
  ```
  $ ssh localhost -p 8022
+ droid@localhost's password:
  ```
 
 #### Password login
 
-By default, the Linux Terminal logs in as user droid, which is not set up for password login. So, even though the ssh server is now running, if we try to ssh locally it will say:
-
-🚧 (what does it say? - connect to previous section)
-
-Show before and after result of passwd --status, ssh@localhost
-
-I've seen a few different recipes for adding password login to the droid user. This is what worked for me:
+By default, the Linux Terminal logs in as user droid, which is not set up for password login. So, we need to configure user droid to have a password. I've seen a few different recipes for adding password login to the droid user. This is what worked for me:
 
 ```
-sudo su -           # become root
-sudo passwd droid
-                    # enter a new password
-exit
+droid@localhost:~$ sudo su -          # become root
+root@localhost:~# sudo passwd droid   
+New password:                         # enter a new password
+Retype new password:
+password: password updated successfully
+root@localhost:~# exit
+```
+
+Now we should be able to ssh to localhost like this:
+
+```
+droid@localhost:~$ ssh localhost -p 8022
+droid@loalhost's password:
 ```
 
 In theory we could also use ssh keys but I stopped when I got password login working.
 
 #### Port forwarding
 
-Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22).
+Now we can ssh within the Linux Terminal, but we want the ability to ssh in from outside. Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22, which is why we configured ssh to listen on port 8022).
 
-Now we should at least be able to ssh to localhost over port 8022, like this:
-
-```
-droid@localhost:~$ ssh localhost -p 8022
-droid@localhost's password: 
-```
-
-But this is not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
+But this is still not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
 
 https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
-
 
 ### adb
 
@@ -187,7 +188,21 @@ ssh droid@localhost -p 8022
 droid@localhost's password: 
 ```
 
-🚧 XC: xeyes
+### X11
+
+For extra credit, if your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
+
+```
+ssh droid@localhost -p 8022 -X
+```
+
+Then run these commands in Linux:
+
+```
+sudo apt install x11-apps
+xeyes
+```
+
 
 
 
