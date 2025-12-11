@@ -35,7 +35,7 @@ Over the years these are the apps I keep installing on new phones
 | LibreTorrent | BitTorrent client | |
 | Maps (Google) | Maps and Navigation | |
 | Messages (Google) | Messages | |
-| Musicolet | Music player | |
+| Musicolet | Music player | Extensive playlist and queue management |
 | NewPipe | YouTube client | |
 | Photos (Google) | Cloud photo storage | |
 | Pocket Casts | Podcast player | |
@@ -63,6 +63,13 @@ Mirror your screen and control your phone from your computer
 ## Linux Terminal
 
 Although Termux works very well, I was curious to try out the Linux Terminal that comes with Android 16. 
+
+```
+droid@localhost:~$ hostnamectl
+  Operating System: Debian GNU/Linux 12 (bookworm)  
+            Kernel: Linux 6.1.0-34-avf-arm64
+      Architecture: arm64
+```
 
 ### Font
 
@@ -97,17 +104,30 @@ Then run:
 
 ```sudo apt install openssh-server```
 
-(need to change port from 22 to 8022?)
+The Terminal app does not allow forwarding port 22 (more on port forwarding below) so we need to configure sshd to use a different port (I chose 8022).
 
-Assuming this worked then you can configure the server to start and run automatically with this command:
+🚧 did we need to install pico or nano?
+
+```
+$ sudo pico /etc/ssh/sshd_config
+Port 8022   # change from Port 22
+```
+
+Now configure the server to start and run automatically with this command:
 
 ```sudo systemctl enable ssh```
+
+🚧 at this point what happens when we run:
+
+ ```
+ $ ssh localhost -p 8022
+ ```
 
 #### Password login
 
 By default, the Linux Terminal logs in as user droid, which is not set up for password login. So, even though the ssh server is now running, if we try to ssh locally it will say:
 
-(what does it say?)
+🚧 (what does it say? - connect to previous section)
 
 Show before and after result of passwd --status, ssh@localhost
 
@@ -120,21 +140,54 @@ sudo passwd droid
 exit
 ```
 
-
+In theory we could also use ssh keys but I stopped when I got password login working.
 
 #### Port forwarding
 
-Do we even need to allow port 8022? yes we need that part too
+Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22).
 
-"You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
+Now we should at least be able to ssh to localhost over port 8022, like this:
+
+```
+droid@localhost:~$ ssh localhost -p 8022
+droid@localhost's password: 
+```
+
+But this is not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
 
 https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
 
-(instructions for setting up wireless debugging)
 
+### adb
+
+If you don't already have adb on your computer, install the Android Platform Tools from this or another location:
+https://developer.android.com/tools/releases/platform-tools
+
+Then follow these instructions to set up Wireless debugging:
+https://developer.android.com/tools/adb
+
+Run the following command to confirm that you are connected to your phone with adb:
+
+```
+$ adb devices
+List of devices attached
+adb-59051FDCR0054L-lpsvGQ._adb-tls-connect._tcp	device   # YMMV
+```
+
+Now run the following command to forward port 8022 from your computer to your phone:
+
+```
 adb forward tcp:8022 tcp:8022
-ssh droid@localhost -p 8022
+```
 
-With adb can we use port 22 instead of 8022? Go back and try it
+Finally, you should be able to connect using this command:
+
+```
+ssh droid@localhost -p 8022
+droid@localhost's password: 
+```
+
+🚧 XC: xeyes
+
 
 
