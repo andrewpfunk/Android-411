@@ -47,4 +47,34 @@ Over the years these are the apps I keep installing on new phones
 | VLC | Video player | |
 | Your Calendar Widget | Calendar widget | Transparent, fully-customizable widget |
 
+## droidVNC-NG
+
+Mirror your screen and control your phone from your computer
+
+### Special keys
+
+| Computer | Android |
+|---|---|
+| Esc | Back |
+| fn + left | Home |
+| fn + right | Power |
+| Ctrl + Shift + Esc | Recent apps |
+
 ## Linux Terminal
+
+Although Termux works very well, I was curious to try out the Linux Terminal that comes with Android 16. 
+
+### Font
+
+The first thing I noticed is that the font is hard to read. There doesn't appear to be any way to change it in app settings. After some trial and error with Pixel settings, I decided to keep the Font size at one notch (default) but increase the Display size from one (default) to two notches. Still, the font used in Terminal is not easy on the eyes. Given that the Termux font looks fine, I think this is just a poor choice of font on Google's part, something which they will probably fix eventually.
+
+### File transfer
+
+Files can be copied between Android and the Linux Terminal using these folders:
+
+- Android: /storage/emulated/0/Download, aka Downloads
+- Linux Terminal: /mnt/shared
+
+### ssh
+
+The font issue, together with the limited screen size and lack of a physical keyboard, made me want to connect to the Linux Terminal from my computer using ssh. This also took some trial and error but I eventually got it working. Using droidVNC-NG made the process easier by allowing me to type commands in the Linux Terminal app with my computer's keyboard before I got ssh working. 
