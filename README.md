@@ -132,7 +132,8 @@ https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_l
 
 (instructions for setting up wireless debugging)
 
-adb forward tcp:2222 tcp:2222
+adb forward tcp:8022 tcp:8022
+ssh droid@localhost -p 8022
 
 With adb can we use port 22 instead of 8022? Go back and try it
 
