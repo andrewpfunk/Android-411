@@ -122,7 +122,7 @@ sudo systemctl start ssh
 sudo systemctl enable ssh
 ```
 
-Now the ssh server should be listening on port 8022, but when we try to connect it asks for a password:
+Now the ssh server should be listening on port 8022, but when we try to connect (from within the Linux Terminal app) it asks for a password, which doesn't yet exist:
 
  ```
  $ ssh localhost -p 8022
@@ -138,11 +138,11 @@ droid@localhost:~$ sudo su -          # become root
 root@localhost:~# sudo passwd droid   
 New password:                         # enter a new password
 Retype new password:
-password: password updated successfully
+passwd: password updated successfully
 root@localhost:~# exit
 ```
 
-Now we should be able to ssh to localhost like this:
+Now we should be able to ssh to localhost (from within the Linux Terminal app) like this:
 
 ```
 droid@localhost:~$ ssh localhost -p 8022
@@ -153,7 +153,7 @@ In theory we could also use ssh keys but I stopped when I got password login wor
 
 #### Port forwarding
 
-Now we can ssh within the Linux Terminal, but we want the ability to ssh in from outside. Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22, which is why we configured ssh to listen on port 8022).
+Now we can ssh within the Linux Terminal app, but we want the ability to ssh in from outside. Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22, which is why we configured ssh to listen on port 8022).
 
 But this is still not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
 
@@ -167,7 +167,7 @@ https://developer.android.com/tools/releases/platform-tools
 Then follow these instructions to set up Wireless debugging:
 https://developer.android.com/tools/adb
 
-Run the following command to confirm that you are connected to your phone with adb:
+Run the following command on your computer to confirm that you are connected to your phone with adb:
 
 ```
 $ adb devices
@@ -175,13 +175,13 @@ List of devices attached
 adb-59051FDCR0054L-lpsvGQ._adb-tls-connect._tcp	device   # YMMV
 ```
 
-Now run the following command to forward port 8022 from your computer to your phone:
+Now run the following command on your computer to forward port 8022 from your computer to your phone:
 
 ```
 adb forward tcp:8022 tcp:8022
 ```
 
-Finally, you should be able to connect using this command:
+Finally, you should be able to connect using this command on your computer:
 
 ```
 ssh droid@localhost -p 8022
