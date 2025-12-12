@@ -207,13 +207,66 @@ xeyes
 
 ### Install
 
+- TBD
+
 ### Install missing libraries
 
-```
-$ ./bin/matlab
-message about missing libnss3.so
-```
+This is an iterative process
 
+```
+$ matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libnss3.so: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libnss3.so: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libnss3
+```
+```
+$ matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libatk-1.0.so.0: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libatk1.0-0
+```
+```
+matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libatk-bridge-2.0.so.0: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libatk-bridge-2.0.so.0: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libatk-bridge2.0-0
+```
+```
+$ matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libcups.so.2: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libcups.so.2: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libcups2
+```
+```
+$ matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libXcomposite.so.1: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libXcomposite.so.1: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libxcomposite1
+```
+```
+$ matlab/bin/matlab
+/bin/uname: error while loading shared libraries: libXdamage.so.1: cannot open shared object file: No such file or directory
+Unrecognized architecture: 
+/home/droid/matlab_install/matlab/bin/linux-arm-64/MATLAB: error while loading shared libraries: libXdamage.so.1: cannot open shared object file: No such file or directory
+```
+```
+sudo apt install libxdamage1
+```
 
 
 
