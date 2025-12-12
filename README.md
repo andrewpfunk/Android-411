@@ -267,7 +267,14 @@ Unrecognized architecture:
 ```
 sudo apt install libxdamage1
 ```
+```
+$ matlab/bin/matlab
+>> computer
 
+ans =
+
+    'LINUXARM64'
+```    
 
 
 
