@@ -203,6 +203,41 @@ sudo apt install x11-apps
 xeyes
 ```
 
+#### VNC
+
+Summary
+
+```
+sudo apt install xfce4 xfce4-goodies
+```
+
+```
+sudo apt install tigervnc-standalone-server tigervnc-xorg-extension
+```
+```
+vncserver :1
+```
+^ create a password
+```
+vncserver -kill :1
+```
+```
+nano ~/.vnc/xstartup
+```
+```
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+```
+```
+chmod +x ~/.vnc/xstartup
+```
+```
+vncserver :1
+```
+- Problem: xrdb: can't open file '/home/droid/.Xresources'
+
+
 
 
 
