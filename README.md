@@ -36,7 +36,7 @@ Over the years these are the apps I keep installing on new phones
 | Maps (Google) | Maps and Navigation | |
 | Messages (Google) | Messages | |
 | Musicolet | Music player | Extensive playlist and queue management |
-| NewPipe | YouTube client | |
+| NewPipe | YouTube client | Might need to exclude this app from Google VPN |
 | Photos (Google) | Cloud photo storage | |
 | Pocket Casts | Podcast player | |
 | RealCalc | Calculator | |
