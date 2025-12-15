@@ -205,19 +205,15 @@ xeyes
 
 #### VNC
 
-Establishing a full VNC session provides a better experience than X!1
+Establishing a full VNC session provides a better experience than X11
 
-
+- Install Xfce and TigerVNC
 ```
 sudo apt install xfce4 xfce4-goodies
-```
-
-```
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension
 ```
 
-- Launch the VNC server once just to create a password
-
+- Launch the VNC server once just to create a password and then exit
 ```
 vncserver :1
 ```
@@ -232,13 +228,12 @@ nano ~/.vnc/config
 ```
 ```
 session=xfce
-geometry=1680x10150
+geometry=1680x1050
 localhost
 alwaysshared
 ```
 
 - Assign a user to a display
-
 ```
 sudo nano /etc/tigervnc/vncserver.users
 ```
@@ -247,19 +242,18 @@ sudo nano /etc/tigervnc/vncserver.users
 ```
 
 - Use systemd to start the VNC server automatically
-
 ```
 sudo systmectl enable --now tigervncserver@:1.service
 ```
 
 - Check status of VNC server
-
 ```
 sudo systemctl status tigervncserver@:1.service
 
-- Allow port 5901 in Terminal settings, and forward the port with adb
-
+- Allow port 5901 in Terminal settings, and forward the port with adb on your computer
 ```
 adb forward tcp:5901 tcp:5901
 ```
+
+- Connect to localhost:1 using a VNC viewer on your computer
 
