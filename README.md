@@ -205,7 +205,8 @@ xeyes
 
 #### VNC
 
-Summary
+Establishing a full VNC session provides a better experience than X!1
+
 
 ```
 sudo apt install xfce4 xfce4-goodies
@@ -214,30 +215,47 @@ sudo apt install xfce4 xfce4-goodies
 ```
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension
 ```
+
+- Launch the VNC server once just to create a password
+
 ```
 vncserver :1
 ```
-^ create a password
 ```
 vncserver -kill :1
 ```
-```
-nano ~/.vnc/xstartup
-```
-```
-#!/bin/bash
-xrdb $HOME/.Xresources
-startxfce4 &
-```
-```
-chmod +x ~/.vnc/xstartup
-```
-```
-vncserver :1
-```
-- Problem: xrdb: can't open file '/home/droid/.Xresources'
 
+- Configure the VNC server to use xfce (choose your preferred screen size)
+  
+```
+nano ~/.vnc/config
+```
+```
+session=xfce
+geometry=1680x10150
+localhost
+alwaysshared
+```
 
+- Assign a user to a display
+
+```
+sudo nano /etc/tigervnc/vncserver.users
+```
+```
+:1=your_username
+```
+
+- Use systemd to start the VNC server automatically
+
+```
+sudo systmectl enable --now tigervncserver@:1.service
+```
+
+- Check status of VNC server
+
+```
+sudo systemctl status tigervncserver@:1.service
 
 
 
