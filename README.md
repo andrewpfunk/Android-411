@@ -250,3 +250,34 @@ adb forward tcp:5901 tcp:5901
 
 Connect to localhost:1 using a VNC viewer on your computer
 
+### RAM
+
+The Pixel 10 has 12 GB of physical RAM, but the Linux Terminal is limited to using only 4 GB, with a 1 GB swap disk by default. There is no way to increase the amount of RAM allocated to Linux, but increasing the available swap space can help when running processes that require a lot of memory.
+
+Per these instructions: https://www.androidauthority.com/android-linux-terminal-memory-fix-3555799/
+
+To increase the swap (zram) size to 8 GB and swappiness to 100%:
+```
+$ sudo pico /etc/systemd/zram-generator.conf
+[zram0]
+zram-size = 8192
+compression-algorithm = zstd
+```
+```
+pico /etc/sysctl.conf
+....
+vm.swappiness=100
+```
+
+To create a new 8GB swap file:
+```
+$ sudo fallocate -l 8G /swap
+$ sudo chmod 600 /swap
+$ sudo mkswap /swap
+$ sudo swapon /swap
+$ sudo swapon -s
+```
+```
+$ sudo pico /etc/fstab
+/swap swap swap defaults 0 0
+```
