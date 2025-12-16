@@ -94,8 +94,6 @@ PING pixel-10 (192.168.1.185): 56 data bytes
 64 bytes from 192.168.1.185: icmp_seq=2 ttl=64 time=55.449 ms
 ```
 
-#### ssh server
-
 Next we need to install an ssh server. Before installing new software packages it is recommended to run:
 
 ```
@@ -129,8 +127,6 @@ Now the ssh server should be listening on port 8022, but when we try to connect 
  droid@localhost's password:
  ```
 
-#### Password login
-
 By default, the Linux Terminal logs in as user droid, which is not set up for password login. So, we need to configure user droid to have a password. I've seen a few different recipes for adding password login to the droid user. This is what worked for me:
 
 ```
@@ -151,15 +147,13 @@ droid@loalhost's password:
 
 In theory we could also use ssh keys but I stopped when I got password login working.
 
-#### Port forwarding
+### Port forwarding and adb
 
 Now we can ssh within the Linux Terminal app, but we want the ability to ssh in from outside. Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22, which is why we configured ssh to listen on port 8022).
 
 But this is still not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
 
 https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
-
-#### adb
 
 If you don't already have adb on your computer, install the Android Platform Tools from this or another location:
 https://developer.android.com/tools/releases/platform-tools
@@ -188,7 +182,7 @@ ssh droid@localhost -p 8022
 droid@localhost's password: 
 ```
 
-#### X11
+### X11
 
 For extra credit, if your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
 
@@ -203,7 +197,7 @@ sudo apt install x11-apps
 xeyes
 ```
 
-#### VNC
+### VNC
 
 Establishing a full VNC session provides a better experience than X11
 
