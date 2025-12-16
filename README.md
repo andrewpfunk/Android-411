@@ -230,7 +230,7 @@ Assign a user to a display
 sudo nano /etc/tigervnc/vncserver.users
 ```
 ```
-:1=your_username
+:1=droid
 ```
 
 Use systemctl to start the VNC server automatically
