@@ -184,7 +184,7 @@ droid@localhost's password:
 
 ### X11
 
-For extra credit, if your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
+If your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
 
 ```
 ssh droid@localhost -p 8022 -X
@@ -201,13 +201,13 @@ xeyes
 
 Establishing a full VNC session provides a better experience than X11
 
-- Install Xfce and TigerVNC
+Install Xfce and TigerVNC
 ```
 sudo apt install xfce4 xfce4-goodies
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension
 ```
 
-- Launch the VNC server once just to create a password and then exit
+Launch the VNC server once just to create a password and then exit
 ```
 vncserver :1
 ```
@@ -215,8 +215,7 @@ vncserver :1
 vncserver -kill :1
 ```
 
-- Configure the VNC server to use xfce (choose your preferred screen size)
-  
+Configure the VNC server to use xfce (choose your preferred screen size)  
 ```
 nano ~/.vnc/config
 ```
@@ -227,7 +226,7 @@ localhost
 alwaysshared
 ```
 
-- Assign a user to a display
+Assign a user to a display
 ```
 sudo nano /etc/tigervnc/vncserver.users
 ```
@@ -235,20 +234,20 @@ sudo nano /etc/tigervnc/vncserver.users
 :1=your_username
 ```
 
-- Use systemd to start the VNC server automatically
+Use systemd to start the VNC server automatically
 ```
 sudo systmectl enable --now tigervncserver@:1.service
 ```
 
-- Check status of VNC server
+To check the status of VNC server
 ```
 sudo systemctl status tigervncserver@:1.service
 ```
 
-- Allow port 5901 in Terminal settings, and forward the port with adb on your computer
+Allow port 5901 in Terminal settings, and then forward the port with adb on your computer
 ```
 adb forward tcp:5901 tcp:5901
 ```
 
-- Connect to localhost:1 using a VNC viewer on your computer
+Connect to localhost:1 using a VNC viewer on your computer
 
