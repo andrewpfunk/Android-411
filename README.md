@@ -94,15 +94,15 @@ PING pixel-10 (192.168.1.185): 56 data bytes
 ```
 
 Next we need to install an ssh server. Before installing new software packages it is recommended to run:
-
 ```
 sudo apt update
 sudo apt upgrade
 ```
 
 Then run:
-
-```sudo apt install openssh-server```
+```
+sudo apt install openssh-server
+```
 
 The Terminal app does not allow forwarding port 22 (more on port forwarding below) so we need to configure sshd to use a different port (I chose 8022). Use your preferred text editor to change the port number in this file from 22 to 8022:
 
