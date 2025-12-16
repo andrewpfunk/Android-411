@@ -1,5 +1,5 @@
 # Android-411
-My favorite Android apps and things to try
+My favorite apps and things to try on Android
 
 ## My phones
 
