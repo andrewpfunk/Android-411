@@ -234,12 +234,12 @@ sudo nano /etc/tigervnc/vncserver.users
 :1=your_username
 ```
 
-Use systemd to start the VNC server automatically
+Use systemctl to start the VNC server automatically
 ```
-sudo systmectl enable --now tigervncserver@:1.service
+sudo systemctl enable --now tigervncserver@:1.service
 ```
 
-To check the status of VNC server
+To check the status of the VNC server
 ```
 sudo systemctl status tigervncserver@:1.service
 ```
