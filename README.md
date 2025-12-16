@@ -249,6 +249,7 @@ sudo systmectl enable --now tigervncserver@:1.service
 - Check status of VNC server
 ```
 sudo systemctl status tigervncserver@:1.service
+```
 
 - Allow port 5901 in Terminal settings, and forward the port with adb on your computer
 ```
