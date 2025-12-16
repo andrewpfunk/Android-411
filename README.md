@@ -51,8 +51,7 @@ Over the years these are the apps I keep installing on new phones
 
 Mirror your screen and control your phone from your computer
 
-### Special keys
-
+Special keys
 | Computer | Android |
 |---|---|
 | Esc | Back |
