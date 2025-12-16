@@ -82,7 +82,7 @@ Files can be copied between Android and the Linux Terminal using these folders:
 - Android: ```/storage/emulated/0/Download``` aka Downloads
 - Linux Terminal: ```/mnt/shared```
 
-### ssh
+### SSH
 
 The font issue, together with the limited screen size and lack of a physical keyboard, made me want to connect to the Linux Terminal from my computer using ssh. This also took some trial and error but I eventually got it working. Using droidVNC-NG made the process easier by allowing me to type commands in the Linux Terminal app with my computer's keyboard before I got ssh working. 
 
