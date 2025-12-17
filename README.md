@@ -250,3 +250,13 @@ adb forward tcp:5901 tcp:5901
 
 Connect to localhost:1 using a VNC viewer on your computer
 
+---
+
+I kept seeing a dialog saying "Authentication is required to create a color managed device" and AI said to do this:
+
+Backup and modify this file to change auth_admin to yes
+```
+sudo pico /usr/share/polkit-1/actions/org.freedesktop.color.policy
+
+<allow_any>yes</allow_any>
+```
