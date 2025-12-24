@@ -119,7 +119,7 @@ sudo systemctl start ssh
 sudo systemctl enable ssh
 ```
 
-Now the ssh server should be listening on port 8022, but when we try to connect (from within the Linux Terminal app) it asks for a password, which doesn't yet exist:
+After restarting the Terminal app, the ssh server should be listening on port 8022. But when we try to connect (from within the Linux Terminal app) it asks for a password, which doesn't yet exist:
 
  ```
  $ ssh localhost -p 8022
