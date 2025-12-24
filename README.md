@@ -200,9 +200,13 @@ xeyes
 
 Establishing a full VNC session provides a better experience than X11
 
-Install Xfce and TigerVNC
+Install Xfce
 ```
 sudo apt install xfce4 xfce4-goodies
+```
+
+Install TigerVNC
+```
 sudo apt install tigervnc-standalone-server tigervnc-xorg-extension
 ```
 
