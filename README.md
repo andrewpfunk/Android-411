@@ -254,3 +254,27 @@ adb forward tcp:5901 tcp:5901
 
 Connect to localhost:1 using a VNC viewer on your computer
 
+### adb
+
+I'm trying to run adb on the Linux VM and pair with the phone. The first problem is that Debian 12 defaults to an older version of adb that does not support the pair command. To get a newer version, I created the following file with the contents shown:
+```
+sudo pico /etc/apt/sources.list.d/backports.list
+```
+```
+deb http://deb.debian.org/debian bookworm-backports main
+```
+
+Then I ran:
+```
+sudo apt update
+sudo apt install -t bookworm-backports adb
+```
+
+Now I have a newer version of adb that supports the pair command. Finally to clean up I ran:
+```
+sudo rm /etc/apt/sources.list.d/backports.list
+sudo apt update
+```
+
+Now, to pair with the phone:
+- TBD
