@@ -256,7 +256,9 @@ Connect to localhost:1 using a VNC viewer on your computer
 
 ### adb
 
-I'm trying to run adb on the Linux VM and pair with the phone. The first problem is that Debian 12 defaults to an older version of adb that does not support the pair command. To get a newer version, I created the following file with the contents shown:
+Having Linux running on the phone makes it convenient to run adb commands without requiring another computer. For example, I have an adb command that I need to run after every reboot to enable ButtonMapper to handle Screen off actions.
+
+I have adb working in Termux, but I'm trying to run adb on the Linux VM and pair with the phone. The first problem is that Debian 12 defaults to an older version of adb that does not support the pair command. To get a newer version, I created the following file with the contents shown:
 ```
 sudo pico /etc/apt/sources.list.d/backports.list
 ```
@@ -276,5 +278,12 @@ sudo rm /etc/apt/sources.list.d/backports.list
 sudo apt update
 ```
 
-Now, to pair with the phone:
-- TBD
+For wireless debugging, the phone only listens for pairing requests while the Pair with device screen is showing. This makes it difficult to run the adb pair command in the Linux Terminal at the same time. But I was able to accomplish this using split screen, as described here: https://www.reddit.com/r/AndroidQuestions/comments/1dg4xuj/any_way_to_run_adb_commands_from_the_phone/
+
+In Settings, turn on Wireless debugging and tap Pair device with pairing code. While the port number and pairing code are visible, put the Settings app into split screen and choose Terminal as the second app. Run the following command in Terminal:
+```
+adb pair localhost:PORT
+```
+
+TODO: figure out dance with Port control
+
