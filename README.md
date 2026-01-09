@@ -280,7 +280,7 @@ sudo apt update
 
 For wireless debugging, the phone only listens for pairing requests while the Pair with device screen is showing. This makes it difficult to run the adb pair command in the Linux Terminal at the same time. But I was able to accomplish this using split screen, as described here: https://www.reddit.com/r/AndroidQuestions/comments/1dg4xuj/any_way_to_run_adb_commands_from_the_phone/
 
-In Settings, turn on Wireless debugging and tap Pair device with pairing code. While the port number and pairing code are visible, put the Settings app into split screen and choose Terminal as the second app. Run the following command in Terminal:
+In Settings, enable Use wireless debugging, then put the Settings app into split screen and choose Terminal as the second app. Tap Pair device with pairing code. While the port number and pairing code are visible, run the following command in Terminal:
 ```
 adb pair localhost:PORT
 ```
