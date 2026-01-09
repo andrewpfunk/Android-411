@@ -10,7 +10,7 @@ In 2007 Apple introduced the iPhone and revolutionized the smartphone industry. 
 | 2008 | MOTO RIZR Z6tv | Watch TV on a tiny screen |
 | 2010 | Droid 2 | Slide-out keyboard |
 | 2012 | Droid Incredible | Honestly I don't remember this phone |
-| 2014 | Galaxy S5 | More well established than new Pixel line |
+| 2014 | Galaxy S5 | More well established than nascent Pixel line |
 | 2016 | Galaxy S7 |  |
 | 2019 | Galaxy S10 | |
 | 2022 | Galaxy S22 | Had superior 3x zoom lense that year |
@@ -150,9 +150,7 @@ In theory we could also use ssh keys but I stopped when I got password login wor
 
 Now we can ssh within the Linux Terminal app, but we want the ability to ssh in from outside. Tap on the settings icon for Terminal, select Port control, press the + and enter port number 8022 (it won't let you enter 22, which is why we configured ssh to listen on port 8022).
 
-But this is still not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device."
-
-https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
+But this is still not enough to allow ssh from another device, because as this user explains, "You can SSH into the VM with adb, but you cannot ssh in from the network (unless you use adb first) because the loopback adapter in the VM does not forward ports outside the device." https://www.reddit.com/r/AndroidQuestions/comments/1nl869m/new_terminal_a_full_linux_vm_can_i_ssh_into_it/
 
 If you don't already have adb on your computer, install the Android Platform Tools from this or another location:
 https://developer.android.com/tools/releases/platform-tools
