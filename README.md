@@ -179,6 +179,13 @@ ssh droid@localhost -p 8022
 droid@localhost's password: 
 ```
 
+### Time zone
+
+The time zone defaults to UTC. To change it, run the following command, e.g.:
+```
+sudo timedatectl set-timezone America/New_York
+```
+
 ### X11
 
 If your computer is running Linux or if you have an X server installed, you can try running graphical apps using X11 forwarding. Connect from your computer to the Linux Terminal with this command:
@@ -261,4 +268,30 @@ Backup and modify this file to change auth_admin to yes
 sudo pico /usr/share/polkit-1/actions/org.freedesktop.color.policy
 
 <allow_any>yes</allow_any>
+```
+
+### Halloy
+
+Halloy is an IRC client that I've used on Mac and I was curious to see if I could get it working on Linux. It's not available via apt, so I followed these instructions:
+```
+brew install snap # (I think this is how I installed snap)
+sudo snap install halloy
+```
+
+After restarting the Terminal app, Halloy appeared in the Application menu under Internet. The app would launch but silently failed to open file dialogs when needed. I eventually fixed that by running:
+```
+sudo apt install xdg-desktop-portal xdg-desktop-portal-gtk
+```
+
+This is the specific configuration I use:
+```
+pico ~/snap/halloy/common/.config/halloy/config.toml
+```
+```
+[servers.undernet]
+nickname = "halloy-user"
+server = "us.undernet.org"
+channels = ["#bookz"]
+port = 6660
+use_tls = false
 ```
