@@ -363,6 +363,11 @@ nano ~/.vnc/xstartup
 xfce4-session &
 ```
 
+For copy/paste, you may also want to include the following command either in xstartup or XFCE settings:
+```
+vncconfig -nowin
+```
+
 Launch vncserver again
 ```
 vncserver
