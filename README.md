@@ -341,7 +341,34 @@ ssh pixel-10 -p 8022
 
 #### VNC
 
-TODO
+Install VNC server
+```
+pkg install x11-repo
+pkg install tigervnc xfce4
+```
+
+Launch vncserver once to set a password
+```
+vncserver
+
+vncserver -kill :1
+```
+
+Configure VNC server to use XFCE4 window manager
+```
+nano ~/.vnc/xstartup
+```
+```
+#!/data/data/com.termux/files/usr/bin/sh
+xfce4-session &
+```
+
+Launch vncserver again
+```
+vncserver
+```
+
+Now you should be able to connect to the VNC server from another computer.
 
 ### Linux Terminal
 
