@@ -425,5 +425,8 @@ Now you should be able to connect from Termux to Linux Terminal by running:
 ssh debian
 ```
 
+TODO get X11 forwarding working from Linux Terminal back to Termux
+- 10.201.204.251
+
 
 
