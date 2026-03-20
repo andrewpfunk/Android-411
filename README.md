@@ -26,25 +26,32 @@ Over the years these are the apps I keep installing on new phones
 | Bitwarden | Password manager | |
 | Calendar (Google) | Calendar ||
 | Chrome (Google) | Web browser ||
+| Compass Level | Compass and level | Nice integration of two device sensors |
 | DevCheck | Device info | |
 | DiskUsage | Disk usage | No longer maintained but still my favorite visualization |
 | Drive (Google) | Cloud storage | |
 | droidVNC-NG | VNC server | I just found this recently but it works great; previously used scrcpy |
 | eBoox | eBook reader | |
+| English | Dictionary ||
+| Fuelio | Gas tracker ||
 | Gmail | Email client | |
+| JustWatch | Movie and TV watchlist ||
 | LibreTorrent | BitTorrent client | |
 | Maps (Google) | Maps and Navigation | |
 | Messages (Google) | Messages | |
 | Musicolet | Music player | Extensive playlist and queue management |
 | NewPipe | YouTube client | Might need to exclude this app from Google VPN |
+| OurGroceries | Shopping list ||
 | Photos (Google) | Cloud photo storage | |
 | Pocket Casts | Podcast player | |
 | RealCalc | Calculator | |
+| RVNC Viewer | VNC client ||
 | Slopes | Ski tracker | |
 | Termux | Linux terminal | More users and better support than Android 16 Linux Terminal |
 | theScore | Sports scores | |
 | Todoist | Task tracker | Transparent widget, cloud sync, full-featured task management |
 | VLC | Video player | |
+| Weawow | Weather | Fully customizable widget and app |
 | Your Calendar Widget | Calendar widget | Transparent, fully-customizable widget |
 
 ## droidVNC-NG
