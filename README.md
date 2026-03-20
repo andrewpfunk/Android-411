@@ -302,3 +302,101 @@ channels = ["#bookz"]
 port = 6660
 use_tls = false
 ```
+
+### Irssi
+
+I've recently started using the text-based [Irssi](https://irssi.org/) client instead of Halloy
+
+TODO add usage notes
+
+## Using Termux and Linux Terminal together
+
+As the Termux and Linux Terminal apps have different strengths and weaknesses, it can be beneficial to use them both together. For one thing, this eliminates the need to use ADB as described above.
+
+### Termux
+
+Since Termux is a first-class Android app, it is more stable and can listen directly for SSH and VNC connections from another computer on the network.
+
+#### SSH
+
+Install ssh server
+```
+pkg install openssh
+```
+
+Set a password
+```
+passwd
+```
+
+Either start sshd manually, or add it to .bashrc
+```
+sshd
+```
+
+Now you should be able to ssh from another computer to Termux (your device name will vary)
+```
+ssh pixel-10 -p 8022
+```
+
+#### VNC
+
+TODO
+
+### Linux Terminal
+
+#### SSH
+
+Install ssh server
+```
+sudo apt install -y openssh-server
+```
+
+Configure sshd to listen on a different port. You definitely need to change it from Port 22. I'm not sure if you need to make it different from 8022 (the port in use by Termux).
+```
+sudo nano /etc/ssh/sshd_config
+```
+- ```Port 8042 #Port 22```
+- ```PasswordAuthentication yes```
+
+Set a password for the droid user
+```
+droid@localhost:~$ sudo su -          # become root
+root@localhost:~# sudo passwd droid   
+New password:                         # enter a new password
+Retype new password:
+passwd: password updated successfully
+root@localhost:~# exit
+```
+
+Find the IP address of the Linux VM (your IP address will vary)
+```
+hostname -I
+10.201.204.243 
+```
+
+### SSH from Termux to Linux Terminal
+
+This should now work:
+```
+ssh -p 8042 droid@10.201.204.243 
+```
+
+To set up an alias (your IP address will vary):
+```
+nano ~/.ssh/config
+```
+```
+Host debian
+    HostName 10.201.204.243
+    User droid
+    Port 8042
+```
+
+Now you should be able to connect from Termux to Linux Terminal by running:
+```
+ssh debian
+```
+
+
+
