@@ -433,5 +433,17 @@ ssh debian
 TODO get X11 forwarding working from Linux Terminal back to Termux
 - 10.201.204.251
 
-
-
+TODO figure out exactly what was needed to get this working
+- xhost +
+- xauth
+- ssh -Y
+- sudo /etc/ssh/sshd_config
+  ```
+  X11Forwarding yes
+  X11UseLocalhost no 
+  ```
+- sudo nano /etc/profile.d/activate_display.sh
+  ```
+  # Added -z "$SSH_TTY" to skip this if we are connecting via SSH
+  if [[ "$USER" == "droid" && -n "$PS1" && -z "$SSH_TTY" ]]; then
+  ```
