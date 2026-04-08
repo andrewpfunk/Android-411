@@ -10,9 +10,9 @@ In 2007 Apple introduced the iPhone and revolutionized the smartphone industry. 
 | 2008 | MOTO RIZR Z6tv | Watch TV on a tiny screen |
 | 2010 | Droid 2 | Slide-out keyboard |
 | 2012 | Droid Incredible | Honestly I don't remember this phone |
-| 2014 | Galaxy S5 | More well established than nascent Pixel line |
-| 2016 | Galaxy S7 |  |
-| 2019 | Galaxy S10 | |
+| 2014 | Galaxy S5 | Removable MicroSD card |
+| 2016 | Galaxy S7 | Removable MicroSD card |
+| 2019 | Galaxy S10 | Removable MicroSD card |
 | 2022 | Galaxy S22 | Had superior 3x zoom lense that year |
 | 2025 | Pixel 10 | Superior 5x zoom lense, plus Linux and VPN |
 
