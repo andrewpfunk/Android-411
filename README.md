@@ -52,6 +52,7 @@ Over the years these are the apps I keep installing on new phones
 | Todoist | Task tracker | Transparent widget, cloud sync, full-featured task management |
 | VLC | Video player | |
 | Weawow | Weather | Fully customizable widget and app |
+| Web Video Caster | Casting | Cast video from phone to receiver app running on Fire TV |
 | Your Calendar Widget | Calendar widget | Transparent, fully-customizable widget |
 
 ## droidVNC-NG
