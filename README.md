@@ -308,7 +308,45 @@ use_tls = false
 
 I've recently started using the text-based [Irssi](https://irssi.org/) client instead of Halloy
 
-TODO add usage notes
+#### Install and setup (for example)
+```
+pkg install irssi
+irssi
+
+/server add -auto -network Undernet us.undernet.org 6660
+/channel add -auto #bookz Undernet
+
+/set user_name irssiuser
+/set real_name Irssi User
+/network add -user irssiuser -realname "Irssi User" Undernet
+
+/save
+```
+<!-- /network add -nick irssi-user Undernet -->
+
+#### Usage example
+- Exclude Termux from VPN on Pixel if having trouble with connecting and/or downloading
+```
+/connect UnderNet
+
+/win 2
+[#bookz] @search "Frankenstein"
+
+/win 1
+/dcc get
+```
+- Unzip results file, e.g.
+```unzip SearchBot_results_for__Frankenstein.txt.zip```
+
+- Find a promising result and run the command
+```
+/win 2
+!Oatmeal 049 - Shelley, Mary - Frankenstein.epub
+
+/win 1
+/dcc get
+```
+
 
 ## Using Termux and Linux Terminal together
 
