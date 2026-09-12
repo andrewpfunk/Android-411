@@ -33,6 +33,7 @@ Over the years these are the apps I keep installing on new phones
 | droidVNC-NG | VNC server | I just found this recently but it works great; previously used scrcpy |
 | eBoox | eBook reader | |
 | English | Dictionary ||
+| FiveWallpapers | Wallpaper | Apply different wallpapers to each home screen |
 | Fuelio | Gas tracker ||
 | Gmail | Email client | |
 | JustWatch | Movie and TV watchlist ||
