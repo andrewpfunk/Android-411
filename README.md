@@ -51,6 +51,7 @@ Over the years these are the apps I keep installing on new phones
 | Termux | Linux terminal | More users and better support than Android 16 Linux Terminal |
 | theScore | Sports scores | |
 | Todoist | Task tracker | Transparent widget, cloud sync, full-featured task management |
+| Trim Video - Cut Video | Video editor | Best interface for scrubbing one frame at a time |
 | VLC | Video player | |
 | Weawow | Weather | Fully customizable widget and app |
 | Web Video Caster | Casting | Cast video from phone to receiver app running on Fire TV |
