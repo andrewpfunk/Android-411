@@ -471,20 +471,74 @@ Now you should be able to connect from Termux to Linux Terminal by running:
 ssh debian
 ```
 
-TODO get X11 forwarding working from Linux Terminal back to Termux
-- 10.201.204.251
+## Port forwarding from Termux to Linux
 
-TODO figure out exactly what was needed to get this working
-- xhost +
-- xauth
-- ssh -Y
-- sudo /etc/ssh/sshd_config
-  ```
-  X11Forwarding yes
-  X11UseLocalhost no 
-  ```
-- sudo nano /etc/profile.d/activate_display.sh
-  ```
-  # Added -z "$SSH_TTY" to skip this if we are connecting via SSH
-  if [[ "$USER" == "droid" && -n "$PS1" && -z "$SSH_TTY" ]]; then
-  ```
+By running Socat (SOcket CAT) in Termux for port forwarding we can enable ssh and other connections from a computer directly to the Linux VM
+
+### Linux VM
+
+- See above for how to enable ssh and vnc servers
+- xrdp is another option
+```
+sudo apt install xfce4 xfce4-goodies
+sudo apt install xrdp
+echo "xfce4-session" > ~/.xsession
+sudo apt install dbus-x11
+```
+- edit /etc/xrdp/startwm.sh:
+```
+# fix black screen on login per gemini
+unset DBUS_SESSION_BUS_ADDRESS
+unset XDG_RUNTIME_DIR
+# end fix
+
+test -x /etc/X11/Xsession && exec /etc/X11/Xsession
+exec /bin/sh /etc/X11/Xsession
+```
+```
+sudo systemctl restart xrdp
+sudo systemctl enable xrdp
+```
+- edit .bashrc to use file system to share dyamic IP address with Termux
+```
+# share dynamic IP address
+hostname -I | awk '{print $1}' > /mnt/shared/Download/vm_ip.txt
+```
+
+### Termux
+
+- edit .bashrc to set up for port forwarding
+```
+# Read the IP address provided by Linux VM
+if [ -f "$HOME/storage/shared/Download/vm_ip.txt" ]; then
+    VM_IP=$(cat "$HOME/storage/shared/Download/vm_ip.txt" | tr -d '\r\n[:space:]')
+
+    if [ ! -z "$VM_IP" ]; then
+        # Forward SSH (Port 2223 -> VM 2222) if not already running
+        if ! pgrep -f "TCP-LISTEN:2223" > /dev/null; then
+            nohup socat TCP-LISTEN:2223,fork,bind=0.0.0.0 TCP:$VM_IP:2222 >/dev/null 2>&1 &
+        fi
+
+        # Forward XRDP (Port 13389 -> VM 3389) if not already running
+        if ! pgrep -f "TCP-LISTEN:13389" > /dev/null; then
+            nohup socat TCP-LISTEN:13389,fork,bind=0.0.0.0 TCP:$VM_IP:3389 >/dev/null 2>&1 &
+        fi
+    fi
+fi
+
+```
+
+### Computer
+
+- Connect to Linux VM using SSH
+    - Can use .ssh/config, ssh-keygen and ssh-id-copy to streamline connection 
+```
+ssh -p 2223 linux-user@<termux ip>
+```
+
+- Connect to Linux VM using Windows RDP
+    - create connection using Remote Desktop or Windows App
+```
+<termux-ip>:13389
+``` 
+
