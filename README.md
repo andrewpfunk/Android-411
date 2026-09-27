@@ -505,6 +505,19 @@ sudo systemctl enable xrdp
 hostname -I | awk '{print $1}' > /mnt/shared/Download/vm_ip.txt
 ```
 
+- Use swap drive to supplement RAM, which is restricted to 1 GB in Android 17
+```
+sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
+
+sudo chmod 600 /swapfile
+
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+sudo sysctl vm.swappiness=100
+```
+   
+
 ### Termux
 
 - edit .bashrc to set up for port forwarding
