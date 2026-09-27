@@ -506,6 +506,7 @@ hostname -I | awk '{print $1}' > /mnt/shared/Download/vm_ip.txt
 ```
 
 - Use swap drive to supplement RAM, which is restricted to 1 GB in Android 17
+    - First, set Memory size to 8 GB under Terminal Settings, Advanced 
 ```
 sudo dd if=/dev/zero of=/swapfile bs=1M count=4096
 
